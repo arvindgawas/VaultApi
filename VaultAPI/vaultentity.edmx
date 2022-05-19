@@ -1,0 +1,1549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RCMProdDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BinMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" />
+          <Property Name="LocationName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MSP" Type="varchar" MaxLength="100" />
+          <Property Name="IFSCCode" Type="varchar" MaxLength="100" />
+          <Property Name="ProductType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Bank" Type="varchar" MaxLength="100" />
+          <Property Name="BinCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="HubLocationName" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="BusinessCallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CallNo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GenDate" Type="datetime" Nullable="false" />
+          <Property Name="ActionDate" Type="datetime" Nullable="false" />
+          <Property Name="GenTime" Type="datetime" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Hublocation" Type="varchar" MaxLength="50" />
+          <Property Name="SubLocation" Type="varchar" MaxLength="50" />
+          <Property Name="CityCode" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerBranchCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustCustomerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChildCRNno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BankLoginNo" Type="varchar" MaxLength="10" />
+          <Property Name="BankLoginTime" Type="datetime" />
+          <Property Name="NumberofCheques" Type="int" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="RequestTime" Type="datetime" />
+          <Property Name="PickupAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AmountDifference" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ChequeNumbers" Type="varchar" MaxLength="20" />
+          <Property Name="CallAction" Type="varchar" MaxLength="10" />
+          <Property Name="CallNature" Type="varchar" MaxLength="10" />
+          <Property Name="CallType" Type="varchar" MaxLength="10" />
+          <Property Name="CallStatus" Type="varchar" MaxLength="10" />
+          <Property Name="CallRemark" Type="varchar" MaxLength="250" />
+          <Property Name="CallRoute" Type="varchar" MaxLength="100" />
+          <Property Name="RefrenceNo1" Type="nvarchar" MaxLength="100" />
+          <Property Name="RefrenceNo2" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="AuthorisedBy" Type="varchar" MaxLength="50" />
+          <Property Name="AuthorisedDate" Type="datetime" />
+          <Property Name="ExecutedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ExecutedDate" Type="datetime" />
+          <Property Name="AttendBy" Type="varchar" MaxLength="50" />
+          <Property Name="AttendDate" Type="datetime" />
+          <Property Name="AttendTime" Type="varchar" MaxLength="5" />
+          <Property Name="ClosedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="NilCashReason" Type="nvarchar(max)" />
+          <Property Name="BankorVault" Type="varchar" MaxLength="50" />
+          <Property Name="CallPassword" Type="varchar" MaxLength="20" />
+          <Property Name="SealBagNumber" Type="varchar" MaxLength="40" />
+          <Property Name="SealNumber" Type="varchar" MaxLength="40" />
+          <Property Name="NilConsiderChk" Type="varchar" MaxLength="20" />
+          <Property Name="CashLimitExdFlag" Type="varchar" MaxLength="20" />
+          <Property Name="HCINFlag" Type="varchar" MaxLength="10" />
+          <Property Name="RequestAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="RequestAmountDiff" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="RectificationDate" Type="datetime" />
+          <Property Name="ClosedCallEditedby1" Type="varchar" MaxLength="10" />
+          <Property Name="ClosedCallEditedDate1" Type="datetime" />
+          <Property Name="ClosedCallEditedby2" Type="varchar" MaxLength="10" />
+          <Property Name="ClosedCallEditedDate2" Type="datetime" />
+          <Property Name="DeliveryFundedBy" Type="varchar" MaxLength="10" />
+          <Property Name="CashWithdrawalFrom" Type="varchar" MaxLength="10" />
+          <Property Name="CashWithdrawalBranch" Type="varchar" MaxLength="10" />
+          <Property Name="CashWithdrawalLocation" Type="varchar" MaxLength="10" />
+          <Property Name="CashDeliveryTime" Type="varchar" MaxLength="5" />
+          <Property Name="receipt_print" Type="varchar" MaxLength="2" />
+          <Property Name="counter_no" Type="varchar" MaxLength="20" />
+          <Property Name="trans_id" Type="varchar" MaxLength="25" />
+          <Property Name="SendSMS" Type="bit" />
+          <Property Name="Reason" Type="int" />
+          <Property Name="HCINumber" Type="varchar" MaxLength="20" />
+          <Property Name="OtherDetail1" Type="varchar(max)" />
+          <Property Name="OtherDetail2" Type="varchar(max)" />
+          <Property Name="DepositSlipImage" Type="varchar(max)" />
+          <Property Name="HCINOImage" Type="varchar(max)" />
+          <Property Name="Remarks" Type="varchar(max)" />
+          <Property Name="Flag" Type="varchar" MaxLength="10" />
+          <Property Name="HCINStartS" Type="varchar(max)" />
+          <Property Name="HCINEndS" Type="varchar(max)" />
+          <Property Name="HCINCurrentS" Type="varchar(max)" />
+          <Property Name="OTP" Type="varchar(max)" />
+          <Property Name="RemarksHCIN" Type="varchar" MaxLength="250" />
+          <Property Name="NilCashFlag" Type="char" MaxLength="2" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DeliveryTime" Type="datetime" />
+          <Property Name="ChequeAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="FlagMaxCashLimit" Type="char" MaxLength="2" />
+          <Property Name="FlagSealBag" Type="char" MaxLength="2" />
+          <Property Name="FlagDepositUpload" Type="char" MaxLength="2" />
+          <Property Name="FlagHCIUpload" Type="char" MaxLength="2" />
+          <Property Name="FlagHCINReplace" Type="char" MaxLength="2" />
+          <Property Name="HCINReplaceImg" Type="varchar(max)" />
+          <Property Name="CallSubStatus" Type="varchar" MaxLength="10" />
+          <Property Name="FlagHCINmismatch" Type="char" MaxLength="2" />
+          <Property Name="FlagPISUpload" Type="char" MaxLength="2" />
+          <Property Name="FlagCDPDeposition" Type="char" MaxLength="2" />
+          <Property Name="FlagNCMDeposition" Type="char" MaxLength="2" />
+          <Property Name="RemarkSealBag" Type="varchar" MaxLength="250" />
+          <Property Name="FlagVaultDepositionCDP" Type="char" MaxLength="2" />
+          <Property Name="HCINname" Type="varchar" MaxLength="100" />
+          <Property Name="HCINmobileNo" Type="varchar" MaxLength="10" />
+          <Property Name="HCINinTime" Type="time" Precision="7" />
+          <Property Name="HCINoutTime" Type="time" Precision="7" />
+          <Property Name="NilIssueType" Type="nvarchar(max)" />
+          <Property Name="DryRunFlag" Type="bit" />
+          <Property Name="FlagClientApproval" Type="bit" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" />
+          <Property Name="TimeStramp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="HCINSeriesRemarkId" Type="int" />
+          <Property Name="Custodian1" Type="varchar" MaxLength="50" />
+          <Property Name="Custodian2" Type="varchar" MaxLength="50" />
+          <Property Name="Custodian3" Type="varchar" MaxLength="50" />
+          <Property Name="Custodian4" Type="varchar" MaxLength="50" />
+          <Property Name="PrevEmpCode" Type="varchar" MaxLength="50" />
+          <Property Name="ActualRouteId" Type="varchar" MaxLength="90" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDryRunSubmit" Type="bit" />
+          <Property Name="MobileUpdate" Type="bit" />
+          <Property Name="OtherRemarksHCIN" Type="varchar" MaxLength="500" />
+          <Property Name="RestartServiceDate" Type="datetime" />
+          <Property Name="OTPMobileNo" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="flagAllowLocException" Type="char" MaxLength="1" />
+          <Property Name="flagapisent" Type="char" MaxLength="1" />
+          <Property Name="flagidfcapisent" Type="char" MaxLength="1" />
+          <Property Name="vaultbankdeposit" Type="char" MaxLength="1" />
+          <Property Name="vaultbankbal" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RCMProdDB.dbo.BusinessCallLogDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BusinessCallLogDetails">
+          <Key>
+            <PropertyRef Name="CallNo" />
+            <PropertyRef Name="ActionDate" />
+            <PropertyRef Name="ClientCustName" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="LocationCode" />
+            <PropertyRef Name="ClientGroupName" />
+            <PropertyRef Name="ClientSubGroupName" />
+          </Key>
+          <Property Name="CallNo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ActionDate" Type="datetime" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" />
+          <Property Name="CashLimit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ClientCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerUniqueId" Type="varchar" MaxLength="50" />
+          <Property Name="DivisionCode" Type="varchar" MaxLength="50" />
+          <Property Name="HierarchyCode" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail1" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail2" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail3" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail4" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail5" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail6" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail7" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDetail8" Type="varchar" MaxLength="50" />
+          <Property Name="PickupCode" Type="varchar" MaxLength="50" />
+          <Property Name="StoreCode" Type="varchar" MaxLength="50" />
+          <Property Name="SubCode" Type="varchar" MaxLength="50" />
+          <Property Name="SubDivisionCode" Type="varchar" MaxLength="50" />
+          <Property Name="AltMobileNo" Type="nvarchar(max)" />
+          <Property Name="ContactName" Type="nvarchar(max)" />
+          <Property Name="EmailID" Type="nvarchar(max)" />
+          <Property Name="FaxNo" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="TelNo" Type="nvarchar(max)" />
+          <Property Name="AcceptClientSysGenDepositeSlip" Type="bit" />
+          <Property Name="Address1" Type="varchar" MaxLength="500" />
+          <Property Name="Address2" Type="varchar" MaxLength="500" />
+          <Property Name="Address3" Type="varchar" MaxLength="500" />
+          <Property Name="AreaAsPerLOI" Type="varchar" MaxLength="50" />
+          <Property Name="BarCode" Type="bit" />
+          <Property Name="CaptureClientRefNo" Type="bit" />
+          <Property Name="CashCounting" Type="bit" />
+          <Property Name="CashCountingVer" Type="bit" />
+          <Property Name="CashMerging" Type="bit" />
+          <Property Name="CityAsPerLOI" Type="varchar" MaxLength="50" />
+          <Property Name="ClientGroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="ClientSubGroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="ClientSubSubGroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="Depositeslip" Type="bit" />
+          <Property Name="DepositSlipPISType" Type="varchar" MaxLength="50" />
+          <Property Name="DistrictCode" Type="varchar" MaxLength="50" />
+          <Property Name="EntityAsPerLOI" Type="varchar" MaxLength="50" />
+          <Property Name="HCINFlag" Type="bit" />
+          <Property Name="ImageSaving" Type="bit" />
+          <Property Name="Industry" Type="varchar" MaxLength="50" />
+          <Property Name="IndustryName" Type="varchar" MaxLength="50" />
+          <Property Name="MarketClusterArea" Type="varchar" MaxLength="50" />
+          <Property Name="MPIN" Type="int" />
+          <Property Name="NormalPickupFromTime" Type="time" Precision="7" />
+          <Property Name="NormalPickupToTime" Type="time" Precision="7" />
+          <Property Name="PinCode" Type="varchar" MaxLength="10" />
+          <Property Name="SameDayDeposit" Type="bit" />
+          <Property Name="SealBagPickup" Type="bit" />
+          <Property Name="SealbagProcessing" Type="bit" />
+          <Property Name="SLAFromTime" Type="time" Precision="7" />
+          <Property Name="SLAToTime" Type="time" Precision="7" />
+          <Property Name="StateCode" Type="varchar" MaxLength="50" />
+          <Property Name="StateName" Type="varchar" MaxLength="200" />
+          <Property Name="TimeSpecificPickup" Type="varchar" MaxLength="10" />
+          <Property Name="TxnVerificationMode" Type="char" MaxLength="10" />
+          <Property Name="Vaulting" Type="bit" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+          <Property Name="AccountType" Type="varchar" MaxLength="50" />
+          <Property Name="CityLimitType" Type="varchar" MaxLength="50" />
+          <Property Name="ClientCustName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CMSCashLimit" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="FarBCLkm" Type="int" />
+          <Property Name="HubLocationCode" Type="varchar" MaxLength="50" />
+          <Property Name="LandMark" Type="varchar" MaxLength="50" />
+          <Property Name="MatchRequestAmount" Type="bit" />
+          <Property Name="MaxCashLimit" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="OldReferenceCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HubLocationName" Type="varchar" MaxLength="50" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+          <Property Name="RegionName" Type="varchar" MaxLength="50" />
+          <Property Name="RouteCode" Type="varchar" MaxLength="100" />
+          <Property Name="SubLocationName" Type="varchar" MaxLength="50" />
+          <Property Name="ClientGroupName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClientSubSubGroupName" Type="varchar" MaxLength="100" />
+          <Property Name="ClientSubGroupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepositionType" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="bigint" />
+          <Property Name="ClientAccountID" Type="int" />
+          <Property Name="SchemeName" Type="varchar" MaxLength="50" />
+          <Property Name="SchemeDetails" Type="varchar" MaxLength="50" />
+          <Property Name="ZoneName" Type="varchar" MaxLength="50" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+          <Property Name="FundingLocation" Type="varchar" MaxLength="50" />
+          <Property Name="DepositeDay" Type="varchar" MaxLength="50" />
+          <Property Name="txnApprovalMode" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="CDPPullingARG" Type="varchar" MaxLength="50" />
+          <Property Name="FundPullingARG" Type="varchar" MaxLength="50" />
+          <Property Name="SecretKey" Type="varchar" MaxLength="50" />
+          <Property Name="Priority_Id" Type="int" />
+          <Property Name="Priority_Type" Type="varchar" MaxLength="50" />
+          <Property Name="flagScanAmount" Type="bit" />
+          <Property Name="CMSDetail8" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CallDenominations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallNo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GenDate" Type="datetime" Nullable="false" />
+          <Property Name="ChildCRNno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNo" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AccountId" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ClientCode" Type="varchar" MaxLength="500" />
+          <Property Name="PickupCode" Type="varchar" MaxLength="500" />
+          <Property Name="StoreCode" Type="varchar" MaxLength="500" />
+          <Property Name="HierarchyCode" Type="varchar" MaxLength="500" />
+          <Property Name="DivisionCode" Type="varchar" MaxLength="20" />
+          <Property Name="SubDivisionCode" Type="varchar" MaxLength="500" />
+          <Property Name="SubCode" Type="varchar" MaxLength="500" />
+          <Property Name="CustomerDeptCode" Type="varchar" MaxLength="500" />
+          <Property Name="Deno1000" Type="int" />
+          <Property Name="Deno2000" Type="int" />
+          <Property Name="Deno500" Type="int" />
+          <Property Name="Deno200" Type="int" />
+          <Property Name="Deno100" Type="int" />
+          <Property Name="Deno50" Type="int" />
+          <Property Name="Deno20" Type="int" />
+          <Property Name="Deno10" Type="int" />
+          <Property Name="DenoOthers" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DepositSlipNo" Type="varchar" MaxLength="50" />
+          <Property Name="PISNo" Type="varchar" MaxLength="50" />
+          <Property Name="RTFNo" Type="varchar" MaxLength="20" />
+          <Property Name="PickupAmont" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PickupDifference" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiscrepancyInCash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OtherDetails1" Type="varchar" MaxLength="500" />
+          <Property Name="OtherDetails2" Type="varchar" MaxLength="500" />
+          <Property Name="DenoCoin10" Type="int" />
+          <Property Name="Remarks_DP" Type="varchar" MaxLength="250" />
+          <Property Name="Remarks_PIS" Type="varchar" MaxLength="250" />
+          <Property Name="AccountFlag" Type="char" MaxLength="1" />
+          <Property Name="RequestAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RequestInfoDiffAmt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CustomerUniqueId" Type="varchar" MaxLength="50" />
+          <Property Name="Remark_DPAgainstRule" Type="varchar" MaxLength="250" />
+          <Property Name="Remark_PISAgainstRule" Type="varchar" MaxLength="250" />
+          <Property Name="CashLimit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FlagCashLimit" Type="char" MaxLength="2" />
+          <Property Name="FlagDP" Type="char" MaxLength="2" />
+          <Property Name="FlagPIS" Type="char" MaxLength="2" />
+          <Property Name="FlagDPRule" Type="char" MaxLength="2" />
+          <Property Name="FlagPISRule" Type="char" MaxLength="2" />
+          <Property Name="DepositSlipImage" Type="varchar(max)" />
+          <Property Name="FlagDPReplace" Type="char" MaxLength="2" />
+          <Property Name="PISImage" Type="varchar(max)" />
+          <Property Name="FlagPISReplace" Type="char" MaxLength="2" />
+          <Property Name="FlagRefNo" Type="char" MaxLength="2" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="10" />
+          <Property Name="FlagDepositUpload" Type="char" MaxLength="2" />
+          <Property Name="FlagPISUpload" Type="char" MaxLength="2" />
+          <Property Name="Deno5" Type="int" />
+          <Property Name="Deno2" Type="int" />
+          <Property Name="RTFImage" Type="varchar(max)" />
+          <Property Name="callId" Type="int" />
+          <Property Name="ImgaeId" Type="int" />
+          <Property Name="FlagRefNoRule" Type="char" MaxLength="2" />
+          <Property Name="FlagRefmandatory" Type="char" MaxLength="2" />
+          <Property Name="ClientCustAccountMasterID" Type="int" />
+        </EntityType>
+        <EntityType Name="CashDepositTxn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallNo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DepositSlipNo" Type="varchar" MaxLength="50" />
+          <Property Name="DepositType" Type="varchar" MaxLength="50" />
+          <Property Name="DepositionBank" Type="varchar" MaxLength="100" />
+          <Property Name="CRNNo" Type="varchar" MaxLength="100" />
+          <Property Name="ChildCRNno" Type="varchar" MaxLength="50" />
+          <Property Name="ActionDate" Type="datetime" />
+          <Property Name="VaultID" Type="varchar" MaxLength="100" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="createdBy" Type="varchar" MaxLength="100" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+          <Property Name="NCM" Type="varchar" MaxLength="100" />
+          <Property Name="NCMAccountNo" Type="varchar" MaxLength="200" />
+          <Property Name="CDP" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="10" />
+          <Property Name="GenDate" Type="datetime" />
+          <Property Name="FlagCDPDeposition" Type="char" MaxLength="1" />
+          <Property Name="FlagNCMDeposition" Type="char" MaxLength="1" />
+          <Property Name="FlagVaultDepositionCDP" Type="char" MaxLength="1" />
+          <Property Name="FlagVaultDepositionNCM" Type="char" MaxLength="1" />
+          <Property Name="FlagCDPDepositionDay01" Type="char" MaxLength="1" />
+          <Property Name="FlagCDPDepositionDay02" Type="char" MaxLength="1" />
+          <Property Name="FlagNCMDepositionDay01" Type="char" MaxLength="1" />
+          <Property Name="FlagNCMDepositionDay02" Type="char" MaxLength="1" />
+          <Property Name="BatchDSNo" Type="varchar" MaxLength="50" />
+          <Property Name="CorebankaccNo" Type="int" />
+          <Property Name="Flag" Type="varchar" MaxLength="20" />
+          <Property Name="Cashdepositflag" Type="varchar" MaxLength="10" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="100" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="100" />
+          <Property Name="apisent" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MdmVaultMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" />
+          <Property Name="VaultCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SubHubLocationCode" Type="varchar" MaxLength="100" />
+          <Property Name="HubLocationName" Type="varchar" MaxLength="200" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RNNCMDepositionTxnDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RNNCMDepsotionTxnId" Type="bigint" Nullable="false" />
+          <Property Name="RNTransactionId" Type="bigint" />
+          <Property Name="LocalBankId" Type="int" />
+          <Property Name="CentralBankId" Type="int" />
+          <Property Name="VaultId" Type="int" />
+          <Property Name="NCMModeId" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="DepositedAmt" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Obsolete" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="flagapisent" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="RNNCMDepositionTxns">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallNo" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PickupAmt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DepositedAmt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PendingAmt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Obsolete" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="vaultbankdeposit" Type="char" MaxLength="1" />
+          <Property Name="vaultbankbal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VaultoBankId" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RCMProdDB.dbo.VaultMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VaultMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RCMVaultId" />
+            <PropertyRef Name="MDMVaultid" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RCMVaultId" Type="int" Nullable="false" />
+          <Property Name="MDMVaultid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VaultMaster">
+          <Key>
+            <PropertyRef Name="VaultID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VaultID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VaultName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VaultType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VaultLimit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RegionCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HubLocationCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubLocation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_BC_CashDepositTxn" />-->
+        <EntityContainer Name="RCMProdDBModelStoreContainer">
+          <EntitySet Name="BinMaster" EntityType="Self.BinMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessCallLog" EntityType="Self.BusinessCallLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallDenominations" EntityType="Self.CallDenominations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CashDepositTxn" EntityType="Self.CashDepositTxn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MdmVaultMaster" EntityType="Self.MdmVaultMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RNNCMDepositionTxnDetails" EntityType="Self.RNNCMDepositionTxnDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RNNCMDepositionTxns" EntityType="Self.RNNCMDepositionTxns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VaultMaster" EntityType="Self.VaultMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessCallLogDetails" EntityType="Self.BusinessCallLogDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BusinessCallLogDetails].[CallNo] AS [CallNo], 
+    [BusinessCallLogDetails].[ActionDate] AS [ActionDate], 
+    [BusinessCallLogDetails].[AccountName] AS [AccountName], 
+    [BusinessCallLogDetails].[CashLimit] AS [CashLimit], 
+    [BusinessCallLogDetails].[ClientCode] AS [ClientCode], 
+    [BusinessCallLogDetails].[CustomerUniqueId] AS [CustomerUniqueId], 
+    [BusinessCallLogDetails].[DivisionCode] AS [DivisionCode], 
+    [BusinessCallLogDetails].[HierarchyCode] AS [HierarchyCode], 
+    [BusinessCallLogDetails].[OtherDetail1] AS [OtherDetail1], 
+    [BusinessCallLogDetails].[OtherDetail2] AS [OtherDetail2], 
+    [BusinessCallLogDetails].[OtherDetail3] AS [OtherDetail3], 
+    [BusinessCallLogDetails].[OtherDetail4] AS [OtherDetail4], 
+    [BusinessCallLogDetails].[OtherDetail5] AS [OtherDetail5], 
+    [BusinessCallLogDetails].[OtherDetail6] AS [OtherDetail6], 
+    [BusinessCallLogDetails].[OtherDetail7] AS [OtherDetail7], 
+    [BusinessCallLogDetails].[OtherDetail8] AS [OtherDetail8], 
+    [BusinessCallLogDetails].[PickupCode] AS [PickupCode], 
+    [BusinessCallLogDetails].[StoreCode] AS [StoreCode], 
+    [BusinessCallLogDetails].[SubCode] AS [SubCode], 
+    [BusinessCallLogDetails].[SubDivisionCode] AS [SubDivisionCode], 
+    [BusinessCallLogDetails].[AltMobileNo] AS [AltMobileNo], 
+    [BusinessCallLogDetails].[ContactName] AS [ContactName], 
+    [BusinessCallLogDetails].[EmailID] AS [EmailID], 
+    [BusinessCallLogDetails].[FaxNo] AS [FaxNo], 
+    [BusinessCallLogDetails].[MobileNo] AS [MobileNo], 
+    [BusinessCallLogDetails].[TelNo] AS [TelNo], 
+    [BusinessCallLogDetails].[AcceptClientSysGenDepositeSlip] AS [AcceptClientSysGenDepositeSlip], 
+    [BusinessCallLogDetails].[Address1] AS [Address1], 
+    [BusinessCallLogDetails].[Address2] AS [Address2], 
+    [BusinessCallLogDetails].[Address3] AS [Address3], 
+    [BusinessCallLogDetails].[AreaAsPerLOI] AS [AreaAsPerLOI], 
+    [BusinessCallLogDetails].[BarCode] AS [BarCode], 
+    [BusinessCallLogDetails].[CaptureClientRefNo] AS [CaptureClientRefNo], 
+    [BusinessCallLogDetails].[CashCounting] AS [CashCounting], 
+    [BusinessCallLogDetails].[CashCountingVer] AS [CashCountingVer], 
+    [BusinessCallLogDetails].[CashMerging] AS [CashMerging], 
+    [BusinessCallLogDetails].[CityAsPerLOI] AS [CityAsPerLOI], 
+    [BusinessCallLogDetails].[ClientGroupCode] AS [ClientGroupCode], 
+    [BusinessCallLogDetails].[ClientSubGroupCode] AS [ClientSubGroupCode], 
+    [BusinessCallLogDetails].[ClientSubSubGroupCode] AS [ClientSubSubGroupCode], 
+    [BusinessCallLogDetails].[Depositeslip] AS [Depositeslip], 
+    [BusinessCallLogDetails].[DepositSlipPISType] AS [DepositSlipPISType], 
+    [BusinessCallLogDetails].[DistrictCode] AS [DistrictCode], 
+    [BusinessCallLogDetails].[EntityAsPerLOI] AS [EntityAsPerLOI], 
+    [BusinessCallLogDetails].[HCINFlag] AS [HCINFlag], 
+    [BusinessCallLogDetails].[ImageSaving] AS [ImageSaving], 
+    [BusinessCallLogDetails].[Industry] AS [Industry], 
+    [BusinessCallLogDetails].[IndustryName] AS [IndustryName], 
+    [BusinessCallLogDetails].[MarketClusterArea] AS [MarketClusterArea], 
+    [BusinessCallLogDetails].[MPIN] AS [MPIN], 
+    [BusinessCallLogDetails].[NormalPickupFromTime] AS [NormalPickupFromTime], 
+    [BusinessCallLogDetails].[NormalPickupToTime] AS [NormalPickupToTime], 
+    [BusinessCallLogDetails].[PinCode] AS [PinCode], 
+    [BusinessCallLogDetails].[SameDayDeposit] AS [SameDayDeposit], 
+    [BusinessCallLogDetails].[SealBagPickup] AS [SealBagPickup], 
+    [BusinessCallLogDetails].[SealbagProcessing] AS [SealbagProcessing], 
+    [BusinessCallLogDetails].[SLAFromTime] AS [SLAFromTime], 
+    [BusinessCallLogDetails].[SLAToTime] AS [SLAToTime], 
+    [BusinessCallLogDetails].[StateCode] AS [StateCode], 
+    [BusinessCallLogDetails].[StateName] AS [StateName], 
+    [BusinessCallLogDetails].[TimeSpecificPickup] AS [TimeSpecificPickup], 
+    [BusinessCallLogDetails].[TxnVerificationMode] AS [TxnVerificationMode], 
+    [BusinessCallLogDetails].[Vaulting] AS [Vaulting], 
+    [BusinessCallLogDetails].[Zone] AS [Zone], 
+    [BusinessCallLogDetails].[AccountType] AS [AccountType], 
+    [BusinessCallLogDetails].[CityLimitType] AS [CityLimitType], 
+    [BusinessCallLogDetails].[ClientCustName] AS [ClientCustName], 
+    [BusinessCallLogDetails].[CMSCashLimit] AS [CMSCashLimit], 
+    [BusinessCallLogDetails].[DepartmentID] AS [DepartmentID], 
+    [BusinessCallLogDetails].[FarBCLkm] AS [FarBCLkm], 
+    [BusinessCallLogDetails].[HubLocationCode] AS [HubLocationCode], 
+    [BusinessCallLogDetails].[LandMark] AS [LandMark], 
+    [BusinessCallLogDetails].[MatchRequestAmount] AS [MatchRequestAmount], 
+    [BusinessCallLogDetails].[MaxCashLimit] AS [MaxCashLimit], 
+    [BusinessCallLogDetails].[OldReferenceCode] AS [OldReferenceCode], 
+    [BusinessCallLogDetails].[CustomerName] AS [CustomerName], 
+    [BusinessCallLogDetails].[HubLocationName] AS [HubLocationName], 
+    [BusinessCallLogDetails].[LocationCode] AS [LocationCode], 
+    [BusinessCallLogDetails].[AreaName] AS [AreaName], 
+    [BusinessCallLogDetails].[LocationName] AS [LocationName], 
+    [BusinessCallLogDetails].[RegionName] AS [RegionName], 
+    [BusinessCallLogDetails].[RouteCode] AS [RouteCode], 
+    [BusinessCallLogDetails].[SubLocationName] AS [SubLocationName], 
+    [BusinessCallLogDetails].[ClientGroupName] AS [ClientGroupName], 
+    [BusinessCallLogDetails].[ClientSubSubGroupName] AS [ClientSubSubGroupName], 
+    [BusinessCallLogDetails].[ClientSubGroupName] AS [ClientSubGroupName], 
+    [BusinessCallLogDetails].[DepositionType] AS [DepositionType], 
+    [BusinessCallLogDetails].[ID] AS [ID], 
+    [BusinessCallLogDetails].[ClientAccountID] AS [ClientAccountID], 
+    [BusinessCallLogDetails].[SchemeName] AS [SchemeName], 
+    [BusinessCallLogDetails].[SchemeDetails] AS [SchemeDetails], 
+    [BusinessCallLogDetails].[ZoneName] AS [ZoneName], 
+    [BusinessCallLogDetails].[DistrictName] AS [DistrictName], 
+    [BusinessCallLogDetails].[FundingLocation] AS [FundingLocation], 
+    [BusinessCallLogDetails].[DepositeDay] AS [DepositeDay], 
+    [BusinessCallLogDetails].[txnApprovalMode] AS [txnApprovalMode], 
+    [BusinessCallLogDetails].[ImagePath] AS [ImagePath], 
+    [BusinessCallLogDetails].[CDPPullingARG] AS [CDPPullingARG], 
+    [BusinessCallLogDetails].[FundPullingARG] AS [FundPullingARG], 
+    [BusinessCallLogDetails].[SecretKey] AS [SecretKey], 
+    [BusinessCallLogDetails].[Priority_Id] AS [Priority_Id], 
+    [BusinessCallLogDetails].[Priority_Type] AS [Priority_Type], 
+    [BusinessCallLogDetails].[flagScanAmount] AS [flagScanAmount], 
+    [BusinessCallLogDetails].[CMSDetail8] AS [CMSDetail8]
+    FROM [dbo].[BusinessCallLogDetails] AS [BusinessCallLogDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VaultMapping" EntityType="Self.VaultMapping" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VaultMapping].[Id] AS [Id], 
+    [VaultMapping].[RCMVaultId] AS [RCMVaultId], 
+    [VaultMapping].[MDMVaultid] AS [MDMVaultid]
+    FROM [dbo].[VaultMapping] AS [VaultMapping]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RCMProdDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CallDenomination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallNo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GenDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChildCRNno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SerialNo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AccountId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PickupCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StoreCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HierarchyCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DivisionCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubDivisionCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SubCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerDeptCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Deno1000" Type="Int32" />
+          <Property Name="Deno2000" Type="Int32" />
+          <Property Name="Deno500" Type="Int32" />
+          <Property Name="Deno200" Type="Int32" />
+          <Property Name="Deno100" Type="Int32" />
+          <Property Name="Deno50" Type="Int32" />
+          <Property Name="Deno20" Type="Int32" />
+          <Property Name="Deno10" Type="Int32" />
+          <Property Name="DenoOthers" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DepositSlipNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PISNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RTFNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PickupAmont" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PickupDifference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscrepancyInCash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="OtherDetails1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetails2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DenoCoin10" Type="Int32" />
+          <Property Name="Remarks_DP" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks_PIS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AccountFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RequestAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RequestInfoDiffAmt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CustomerUniqueId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark_DPAgainstRule" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Remark_PISAgainstRule" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CashLimit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FlagCashLimit" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagDP" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagPIS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagDPRule" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagPISRule" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="DepositSlipImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FlagDPReplace" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="PISImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FlagPISReplace" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagRefNo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FlagDepositUpload" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagPISUpload" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Deno5" Type="Int32" />
+          <Property Name="Deno2" Type="Int32" />
+          <Property Name="RTFImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="callId" Type="Int32" />
+          <Property Name="ImgaeId" Type="Int32" />
+          <Property Name="FlagRefNoRule" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagRefmandatory" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ClientCustAccountMasterID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="RCMProdDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CallDenominations" EntityType="Self.CallDenomination" />
+          <EntitySet Name="BusinessCallLogDetails" EntityType="RCMProdDBModel.BusinessCallLogDetail" />
+          <EntitySet Name="BusinessCallLogs" EntityType="RCMProdDBModel.BusinessCallLog" />
+          <EntitySet Name="RNNCMDepositionTxnDetails" EntityType="RCMProdDBModel.RNNCMDepositionTxnDetail" />
+          <EntitySet Name="RNNCMDepositionTxns" EntityType="RCMProdDBModel.RNNCMDepositionTxn" />
+          <EntitySet Name="CashDepositTxns" EntityType="RCMProdDBModel.CashDepositTxn" />
+          <EntitySet Name="BinMasters" EntityType="RCMProdDBModel.BinMaster" />
+          <EntitySet Name="MdmVaultMasters" EntityType="RCMProdDBModel.MdmVaultMaster" />
+          <EntitySet Name="VaultMappings" EntityType="RCMProdDBModel.VaultMapping" />
+          <EntitySet Name="VaultMasters" EntityType="RCMProdDBModel.VaultMaster" />
+        </EntityContainer>
+        <EntityType Name="BusinessCallLogDetail">
+          <Key>
+            <PropertyRef Name="CallNo" />
+            <PropertyRef Name="ActionDate" />
+            <PropertyRef Name="ClientCustName" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="LocationCode" />
+            <PropertyRef Name="ClientGroupName" />
+            <PropertyRef Name="ClientSubGroupName" />
+          </Key>
+          <Property Name="CallNo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ActionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CashLimit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ClientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUniqueId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DivisionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HierarchyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PickupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StoreCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubDivisionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AltMobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TelNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AcceptClientSysGenDepositeSlip" Type="Boolean" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AreaAsPerLOI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BarCode" Type="Boolean" />
+          <Property Name="CaptureClientRefNo" Type="Boolean" />
+          <Property Name="CashCounting" Type="Boolean" />
+          <Property Name="CashCountingVer" Type="Boolean" />
+          <Property Name="CashMerging" Type="Boolean" />
+          <Property Name="CityAsPerLOI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientSubGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientSubSubGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Depositeslip" Type="Boolean" />
+          <Property Name="DepositSlipPISType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EntityAsPerLOI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HCINFlag" Type="Boolean" />
+          <Property Name="ImageSaving" Type="Boolean" />
+          <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IndustryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MarketClusterArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MPIN" Type="Int32" />
+          <Property Name="NormalPickupFromTime" Type="Time" Precision="7" />
+          <Property Name="NormalPickupToTime" Type="Time" Precision="7" />
+          <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SameDayDeposit" Type="Boolean" />
+          <Property Name="SealBagPickup" Type="Boolean" />
+          <Property Name="SealbagProcessing" Type="Boolean" />
+          <Property Name="SLAFromTime" Type="Time" Precision="7" />
+          <Property Name="SLAToTime" Type="Time" Precision="7" />
+          <Property Name="StateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TimeSpecificPickup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TxnVerificationMode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Vaulting" Type="Boolean" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityLimitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientCustName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CMSCashLimit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FarBCLkm" Type="Int32" />
+          <Property Name="HubLocationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LandMark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatchRequestAmount" Type="Boolean" />
+          <Property Name="MaxCashLimit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OldReferenceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HubLocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RouteCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SubLocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientGroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClientSubSubGroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClientSubGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int64" />
+          <Property Name="ClientAccountID" Type="Int32" />
+          <Property Name="SchemeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchemeDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FundingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositeDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="txnApprovalMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CDPPullingARG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FundPullingARG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SecretKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Priority_Id" Type="Int32" />
+          <Property Name="Priority_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flagScanAmount" Type="Boolean" />
+          <Property Name="CMSDetail8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BusinessCallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CallNo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GenDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GenTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hublocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerBranchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustCustomerCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChildCRNno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BankLoginNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BankLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="NumberofCheques" Type="Int32" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="RequestTime" Type="DateTime" Precision="3" />
+          <Property Name="PickupAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="AmountDifference" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChequeNumbers" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CallAction" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CallNature" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CallType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CallStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CallRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CallRoute" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RefrenceNo1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefrenceNo2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="AuthorisedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorisedDate" Type="DateTime" Precision="3" />
+          <Property Name="ExecutedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutedDate" Type="DateTime" Precision="3" />
+          <Property Name="AttendBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttendDate" Type="DateTime" Precision="3" />
+          <Property Name="AttendTime" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="NilCashReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankorVault" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CallPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SealBagNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SealNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NilConsiderChk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CashLimitExdFlag" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HCINFlag" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RequestAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RequestAmountDiff" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RectificationDate" Type="DateTime" Precision="3" />
+          <Property Name="ClosedCallEditedby1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedCallEditedDate1" Type="DateTime" Precision="3" />
+          <Property Name="ClosedCallEditedby2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedCallEditedDate2" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryFundedBy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CashWithdrawalFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CashWithdrawalBranch" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CashWithdrawalLocation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CashDeliveryTime" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="receipt_print" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="counter_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="trans_id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SendSMS" Type="Boolean" />
+          <Property Name="Reason" Type="Int32" />
+          <Property Name="HCINumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDetail2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DepositSlipImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HCINOImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HCINStartS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HCINEndS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HCINCurrentS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OTP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RemarksHCIN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NilCashFlag" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryTime" Type="DateTime" Precision="3" />
+          <Property Name="ChequeAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FlagMaxCashLimit" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagSealBag" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagDepositUpload" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagHCIUpload" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagHCINReplace" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="HCINReplaceImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CallSubStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FlagHCINmismatch" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagPISUpload" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagCDPDeposition" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="FlagNCMDeposition" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="RemarkSealBag" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FlagVaultDepositionCDP" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="HCINname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HCINmobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HCINinTime" Type="Time" Precision="7" />
+          <Property Name="HCINoutTime" Type="Time" Precision="7" />
+          <Property Name="NilIssueType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DryRunFlag" Type="Boolean" />
+          <Property Name="FlagClientApproval" Type="Boolean" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStramp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="HCINSeriesRemarkId" Type="Int32" />
+          <Property Name="Custodian1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custodian2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custodian3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custodian4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrevEmpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActualRouteId" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDryRunSubmit" Type="Boolean" />
+          <Property Name="MobileUpdate" Type="Boolean" />
+          <Property Name="OtherRemarksHCIN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RestartServiceDate" Type="DateTime" Precision="3" />
+          <Property Name="OTPMobileNo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="flagAllowLocException" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="flagapisent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="flagidfcapisent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="vaultbankdeposit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="vaultbankbal" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="RNNCMDepositionTxnDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RNNCMDepsotionTxnId" Type="Int64" Nullable="false" />
+          <Property Name="RNTransactionId" Type="Int64" />
+          <Property Name="LocalBankId" Type="Int32" />
+          <Property Name="CentralBankId" Type="Int32" />
+          <Property Name="VaultId" Type="Int32" />
+          <Property Name="NCMModeId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DepositedAmt" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Obsolete" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="flagapisent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RNNCMDepositionTxn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallNo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PickupAmt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DepositedAmt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PendingAmt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Obsolete" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="vaultbankdeposit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="vaultbankbal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VaultoBankId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="CashDepositTxn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallNo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DepositSlipNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositionBank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CRNNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChildCRNno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+          <Property Name="VaultID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="createdBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NCM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NCMAccountNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CDP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="GenDate" Type="DateTime" Precision="3" />
+          <Property Name="FlagCDPDeposition" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagNCMDeposition" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagVaultDepositionCDP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagVaultDepositionNCM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagCDPDepositionDay01" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagCDPDepositionDay02" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagNCMDepositionDay01" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FlagNCMDepositionDay02" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BatchDSNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CorebankaccNo" Type="Int32" />
+          <Property Name="Flag" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cashdepositflag" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="apisent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BinMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MSP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IFSCCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProductType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BinCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="HubLocationName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MdmVaultMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" />
+          <Property Name="VaultCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubHubLocationCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HubLocationName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="VaultMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RCMVaultId" />
+            <PropertyRef Name="MDMVaultid" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RCMVaultId" Type="Int32" Nullable="false" />
+          <Property Name="MDMVaultid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VaultMaster">
+          <Key>
+            <PropertyRef Name="VaultID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VaultID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VaultName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VaultType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VaultLimit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="RegionCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HubLocationCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubLocation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RCMProdDBModelStoreContainer" CdmEntityContainer="RCMProdDBEntities">
+          <EntitySetMapping Name="CallDenominations">
+            <EntityTypeMapping TypeName="RCMProdDBModel.CallDenomination">
+              <MappingFragment StoreEntitySet="CallDenominations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CallNo" ColumnName="CallNo" />
+                <ScalarProperty Name="GenDate" ColumnName="GenDate" />
+                <ScalarProperty Name="ChildCRNno" ColumnName="ChildCRNno" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="PickupCode" ColumnName="PickupCode" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="HierarchyCode" ColumnName="HierarchyCode" />
+                <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+                <ScalarProperty Name="SubDivisionCode" ColumnName="SubDivisionCode" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="CustomerDeptCode" ColumnName="CustomerDeptCode" />
+                <ScalarProperty Name="Deno1000" ColumnName="Deno1000" />
+                <ScalarProperty Name="Deno2000" ColumnName="Deno2000" />
+                <ScalarProperty Name="Deno500" ColumnName="Deno500" />
+                <ScalarProperty Name="Deno200" ColumnName="Deno200" />
+                <ScalarProperty Name="Deno100" ColumnName="Deno100" />
+                <ScalarProperty Name="Deno50" ColumnName="Deno50" />
+                <ScalarProperty Name="Deno20" ColumnName="Deno20" />
+                <ScalarProperty Name="Deno10" ColumnName="Deno10" />
+                <ScalarProperty Name="DenoOthers" ColumnName="DenoOthers" />
+                <ScalarProperty Name="DepositSlipNo" ColumnName="DepositSlipNo" />
+                <ScalarProperty Name="PISNo" ColumnName="PISNo" />
+                <ScalarProperty Name="RTFNo" ColumnName="RTFNo" />
+                <ScalarProperty Name="PickupAmont" ColumnName="PickupAmont" />
+                <ScalarProperty Name="PickupDifference" ColumnName="PickupDifference" />
+                <ScalarProperty Name="DiscrepancyInCash" ColumnName="DiscrepancyInCash" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="OtherDetails1" ColumnName="OtherDetails1" />
+                <ScalarProperty Name="OtherDetails2" ColumnName="OtherDetails2" />
+                <ScalarProperty Name="DenoCoin10" ColumnName="DenoCoin10" />
+                <ScalarProperty Name="Remarks_DP" ColumnName="Remarks_DP" />
+                <ScalarProperty Name="Remarks_PIS" ColumnName="Remarks_PIS" />
+                <ScalarProperty Name="AccountFlag" ColumnName="AccountFlag" />
+                <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+                <ScalarProperty Name="ActualAmount" ColumnName="ActualAmount" />
+                <ScalarProperty Name="RequestInfoDiffAmt" ColumnName="RequestInfoDiffAmt" />
+                <ScalarProperty Name="CustomerUniqueId" ColumnName="CustomerUniqueId" />
+                <ScalarProperty Name="Remark_DPAgainstRule" ColumnName="Remark_DPAgainstRule" />
+                <ScalarProperty Name="Remark_PISAgainstRule" ColumnName="Remark_PISAgainstRule" />
+                <ScalarProperty Name="CashLimit" ColumnName="CashLimit" />
+                <ScalarProperty Name="FlagCashLimit" ColumnName="FlagCashLimit" />
+                <ScalarProperty Name="FlagDP" ColumnName="FlagDP" />
+                <ScalarProperty Name="FlagPIS" ColumnName="FlagPIS" />
+                <ScalarProperty Name="FlagDPRule" ColumnName="FlagDPRule" />
+                <ScalarProperty Name="FlagPISRule" ColumnName="FlagPISRule" />
+                <ScalarProperty Name="DepositSlipImage" ColumnName="DepositSlipImage" />
+                <ScalarProperty Name="FlagDPReplace" ColumnName="FlagDPReplace" />
+                <ScalarProperty Name="PISImage" ColumnName="PISImage" />
+                <ScalarProperty Name="FlagPISReplace" ColumnName="FlagPISReplace" />
+                <ScalarProperty Name="FlagRefNo" ColumnName="FlagRefNo" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="FlagDepositUpload" ColumnName="FlagDepositUpload" />
+                <ScalarProperty Name="FlagPISUpload" ColumnName="FlagPISUpload" />
+                <ScalarProperty Name="Deno5" ColumnName="Deno5" />
+                <ScalarProperty Name="Deno2" ColumnName="Deno2" />
+                <ScalarProperty Name="RTFImage" ColumnName="RTFImage" />
+                <ScalarProperty Name="callId" ColumnName="callId" />
+                <ScalarProperty Name="ImgaeId" ColumnName="ImgaeId" />
+                <ScalarProperty Name="FlagRefNoRule" ColumnName="FlagRefNoRule" />
+                <ScalarProperty Name="FlagRefmandatory" ColumnName="FlagRefmandatory" />
+                <ScalarProperty Name="ClientCustAccountMasterID" ColumnName="ClientCustAccountMasterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessCallLogDetails">
+            <EntityTypeMapping TypeName="RCMProdDBModel.BusinessCallLogDetail">
+              <MappingFragment StoreEntitySet="BusinessCallLogDetails">
+                <ScalarProperty Name="CMSDetail8" ColumnName="CMSDetail8" />
+                <ScalarProperty Name="flagScanAmount" ColumnName="flagScanAmount" />
+                <ScalarProperty Name="Priority_Type" ColumnName="Priority_Type" />
+                <ScalarProperty Name="Priority_Id" ColumnName="Priority_Id" />
+                <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+                <ScalarProperty Name="FundPullingARG" ColumnName="FundPullingARG" />
+                <ScalarProperty Name="CDPPullingARG" ColumnName="CDPPullingARG" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="txnApprovalMode" ColumnName="txnApprovalMode" />
+                <ScalarProperty Name="DepositeDay" ColumnName="DepositeDay" />
+                <ScalarProperty Name="FundingLocation" ColumnName="FundingLocation" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
+                <ScalarProperty Name="SchemeName" ColumnName="SchemeName" />
+                <ScalarProperty Name="ClientAccountID" ColumnName="ClientAccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DepositionType" ColumnName="DepositionType" />
+                <ScalarProperty Name="ClientSubGroupName" ColumnName="ClientSubGroupName" />
+                <ScalarProperty Name="ClientSubSubGroupName" ColumnName="ClientSubSubGroupName" />
+                <ScalarProperty Name="ClientGroupName" ColumnName="ClientGroupName" />
+                <ScalarProperty Name="SubLocationName" ColumnName="SubLocationName" />
+                <ScalarProperty Name="RouteCode" ColumnName="RouteCode" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="HubLocationName" ColumnName="HubLocationName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="OldReferenceCode" ColumnName="OldReferenceCode" />
+                <ScalarProperty Name="MaxCashLimit" ColumnName="MaxCashLimit" />
+                <ScalarProperty Name="MatchRequestAmount" ColumnName="MatchRequestAmount" />
+                <ScalarProperty Name="LandMark" ColumnName="LandMark" />
+                <ScalarProperty Name="HubLocationCode" ColumnName="HubLocationCode" />
+                <ScalarProperty Name="FarBCLkm" ColumnName="FarBCLkm" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="CMSCashLimit" ColumnName="CMSCashLimit" />
+                <ScalarProperty Name="ClientCustName" ColumnName="ClientCustName" />
+                <ScalarProperty Name="CityLimitType" ColumnName="CityLimitType" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Vaulting" ColumnName="Vaulting" />
+                <ScalarProperty Name="TxnVerificationMode" ColumnName="TxnVerificationMode" />
+                <ScalarProperty Name="TimeSpecificPickup" ColumnName="TimeSpecificPickup" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="SLAToTime" ColumnName="SLAToTime" />
+                <ScalarProperty Name="SLAFromTime" ColumnName="SLAFromTime" />
+                <ScalarProperty Name="SealbagProcessing" ColumnName="SealbagProcessing" />
+                <ScalarProperty Name="SealBagPickup" ColumnName="SealBagPickup" />
+                <ScalarProperty Name="SameDayDeposit" ColumnName="SameDayDeposit" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="NormalPickupToTime" ColumnName="NormalPickupToTime" />
+                <ScalarProperty Name="NormalPickupFromTime" ColumnName="NormalPickupFromTime" />
+                <ScalarProperty Name="MPIN" ColumnName="MPIN" />
+                <ScalarProperty Name="MarketClusterArea" ColumnName="MarketClusterArea" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="ImageSaving" ColumnName="ImageSaving" />
+                <ScalarProperty Name="HCINFlag" ColumnName="HCINFlag" />
+                <ScalarProperty Name="EntityAsPerLOI" ColumnName="EntityAsPerLOI" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="DepositSlipPISType" ColumnName="DepositSlipPISType" />
+                <ScalarProperty Name="Depositeslip" ColumnName="Depositeslip" />
+                <ScalarProperty Name="ClientSubSubGroupCode" ColumnName="ClientSubSubGroupCode" />
+                <ScalarProperty Name="ClientSubGroupCode" ColumnName="ClientSubGroupCode" />
+                <ScalarProperty Name="ClientGroupCode" ColumnName="ClientGroupCode" />
+                <ScalarProperty Name="CityAsPerLOI" ColumnName="CityAsPerLOI" />
+                <ScalarProperty Name="CashMerging" ColumnName="CashMerging" />
+                <ScalarProperty Name="CashCountingVer" ColumnName="CashCountingVer" />
+                <ScalarProperty Name="CashCounting" ColumnName="CashCounting" />
+                <ScalarProperty Name="CaptureClientRefNo" ColumnName="CaptureClientRefNo" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="AreaAsPerLOI" ColumnName="AreaAsPerLOI" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="AcceptClientSysGenDepositeSlip" ColumnName="AcceptClientSysGenDepositeSlip" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="AltMobileNo" ColumnName="AltMobileNo" />
+                <ScalarProperty Name="SubDivisionCode" ColumnName="SubDivisionCode" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="PickupCode" ColumnName="PickupCode" />
+                <ScalarProperty Name="OtherDetail8" ColumnName="OtherDetail8" />
+                <ScalarProperty Name="OtherDetail7" ColumnName="OtherDetail7" />
+                <ScalarProperty Name="OtherDetail6" ColumnName="OtherDetail6" />
+                <ScalarProperty Name="OtherDetail5" ColumnName="OtherDetail5" />
+                <ScalarProperty Name="OtherDetail4" ColumnName="OtherDetail4" />
+                <ScalarProperty Name="OtherDetail3" ColumnName="OtherDetail3" />
+                <ScalarProperty Name="OtherDetail2" ColumnName="OtherDetail2" />
+                <ScalarProperty Name="OtherDetail1" ColumnName="OtherDetail1" />
+                <ScalarProperty Name="HierarchyCode" ColumnName="HierarchyCode" />
+                <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+                <ScalarProperty Name="CustomerUniqueId" ColumnName="CustomerUniqueId" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="CashLimit" ColumnName="CashLimit" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="CallNo" ColumnName="CallNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessCallLogs">
+            <EntityTypeMapping TypeName="RCMProdDBModel.BusinessCallLog">
+              <MappingFragment StoreEntitySet="BusinessCallLog">
+                <ScalarProperty Name="vaultbankbal" ColumnName="vaultbankbal" />
+                <ScalarProperty Name="vaultbankdeposit" ColumnName="vaultbankdeposit" />
+                <ScalarProperty Name="flagidfcapisent" ColumnName="flagidfcapisent" />
+                <ScalarProperty Name="flagapisent" ColumnName="flagapisent" />
+                <ScalarProperty Name="flagAllowLocException" ColumnName="flagAllowLocException" />
+                <ScalarProperty Name="OTPMobileNo" ColumnName="OTPMobileNo" />
+                <ScalarProperty Name="RestartServiceDate" ColumnName="RestartServiceDate" />
+                <ScalarProperty Name="OtherRemarksHCIN" ColumnName="OtherRemarksHCIN" />
+                <ScalarProperty Name="MobileUpdate" ColumnName="MobileUpdate" />
+                <ScalarProperty Name="IsDryRunSubmit" ColumnName="IsDryRunSubmit" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActualRouteId" ColumnName="ActualRouteId" />
+                <ScalarProperty Name="PrevEmpCode" ColumnName="PrevEmpCode" />
+                <ScalarProperty Name="Custodian4" ColumnName="Custodian4" />
+                <ScalarProperty Name="Custodian3" ColumnName="Custodian3" />
+                <ScalarProperty Name="Custodian2" ColumnName="Custodian2" />
+                <ScalarProperty Name="Custodian1" ColumnName="Custodian1" />
+                <ScalarProperty Name="HCINSeriesRemarkId" ColumnName="HCINSeriesRemarkId" />
+                <ScalarProperty Name="TimeStramp" ColumnName="TimeStramp" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="FlagClientApproval" ColumnName="FlagClientApproval" />
+                <ScalarProperty Name="DryRunFlag" ColumnName="DryRunFlag" />
+                <ScalarProperty Name="NilIssueType" ColumnName="NilIssueType" />
+                <ScalarProperty Name="HCINoutTime" ColumnName="HCINoutTime" />
+                <ScalarProperty Name="HCINinTime" ColumnName="HCINinTime" />
+                <ScalarProperty Name="HCINmobileNo" ColumnName="HCINmobileNo" />
+                <ScalarProperty Name="HCINname" ColumnName="HCINname" />
+                <ScalarProperty Name="FlagVaultDepositionCDP" ColumnName="FlagVaultDepositionCDP" />
+                <ScalarProperty Name="RemarkSealBag" ColumnName="RemarkSealBag" />
+                <ScalarProperty Name="FlagNCMDeposition" ColumnName="FlagNCMDeposition" />
+                <ScalarProperty Name="FlagCDPDeposition" ColumnName="FlagCDPDeposition" />
+                <ScalarProperty Name="FlagPISUpload" ColumnName="FlagPISUpload" />
+                <ScalarProperty Name="FlagHCINmismatch" ColumnName="FlagHCINmismatch" />
+                <ScalarProperty Name="CallSubStatus" ColumnName="CallSubStatus" />
+                <ScalarProperty Name="HCINReplaceImg" ColumnName="HCINReplaceImg" />
+                <ScalarProperty Name="FlagHCINReplace" ColumnName="FlagHCINReplace" />
+                <ScalarProperty Name="FlagHCIUpload" ColumnName="FlagHCIUpload" />
+                <ScalarProperty Name="FlagDepositUpload" ColumnName="FlagDepositUpload" />
+                <ScalarProperty Name="FlagSealBag" ColumnName="FlagSealBag" />
+                <ScalarProperty Name="FlagMaxCashLimit" ColumnName="FlagMaxCashLimit" />
+                <ScalarProperty Name="ChequeAmount" ColumnName="ChequeAmount" />
+                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="NilCashFlag" ColumnName="NilCashFlag" />
+                <ScalarProperty Name="RemarksHCIN" ColumnName="RemarksHCIN" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+                <ScalarProperty Name="HCINCurrentS" ColumnName="HCINCurrentS" />
+                <ScalarProperty Name="HCINEndS" ColumnName="HCINEndS" />
+                <ScalarProperty Name="HCINStartS" ColumnName="HCINStartS" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="HCINOImage" ColumnName="HCINOImage" />
+                <ScalarProperty Name="DepositSlipImage" ColumnName="DepositSlipImage" />
+                <ScalarProperty Name="OtherDetail2" ColumnName="OtherDetail2" />
+                <ScalarProperty Name="OtherDetail1" ColumnName="OtherDetail1" />
+                <ScalarProperty Name="HCINumber" ColumnName="HCINumber" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="SendSMS" ColumnName="SendSMS" />
+                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+                <ScalarProperty Name="counter_no" ColumnName="counter_no" />
+                <ScalarProperty Name="receipt_print" ColumnName="receipt_print" />
+                <ScalarProperty Name="CashDeliveryTime" ColumnName="CashDeliveryTime" />
+                <ScalarProperty Name="CashWithdrawalLocation" ColumnName="CashWithdrawalLocation" />
+                <ScalarProperty Name="CashWithdrawalBranch" ColumnName="CashWithdrawalBranch" />
+                <ScalarProperty Name="CashWithdrawalFrom" ColumnName="CashWithdrawalFrom" />
+                <ScalarProperty Name="DeliveryFundedBy" ColumnName="DeliveryFundedBy" />
+                <ScalarProperty Name="ClosedCallEditedDate2" ColumnName="ClosedCallEditedDate2" />
+                <ScalarProperty Name="ClosedCallEditedby2" ColumnName="ClosedCallEditedby2" />
+                <ScalarProperty Name="ClosedCallEditedDate1" ColumnName="ClosedCallEditedDate1" />
+                <ScalarProperty Name="ClosedCallEditedby1" ColumnName="ClosedCallEditedby1" />
+                <ScalarProperty Name="RectificationDate" ColumnName="RectificationDate" />
+                <ScalarProperty Name="RequestAmountDiff" ColumnName="RequestAmountDiff" />
+                <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+                <ScalarProperty Name="HCINFlag" ColumnName="HCINFlag" />
+                <ScalarProperty Name="CashLimitExdFlag" ColumnName="CashLimitExdFlag" />
+                <ScalarProperty Name="NilConsiderChk" ColumnName="NilConsiderChk" />
+                <ScalarProperty Name="SealNumber" ColumnName="SealNumber" />
+                <ScalarProperty Name="SealBagNumber" ColumnName="SealBagNumber" />
+                <ScalarProperty Name="CallPassword" ColumnName="CallPassword" />
+                <ScalarProperty Name="BankorVault" ColumnName="BankorVault" />
+                <ScalarProperty Name="NilCashReason" ColumnName="NilCashReason" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="ClosedBy" ColumnName="ClosedBy" />
+                <ScalarProperty Name="AttendTime" ColumnName="AttendTime" />
+                <ScalarProperty Name="AttendDate" ColumnName="AttendDate" />
+                <ScalarProperty Name="AttendBy" ColumnName="AttendBy" />
+                <ScalarProperty Name="ExecutedDate" ColumnName="ExecutedDate" />
+                <ScalarProperty Name="ExecutedBy" ColumnName="ExecutedBy" />
+                <ScalarProperty Name="AuthorisedDate" ColumnName="AuthorisedDate" />
+                <ScalarProperty Name="AuthorisedBy" ColumnName="AuthorisedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RefrenceNo2" ColumnName="RefrenceNo2" />
+                <ScalarProperty Name="RefrenceNo1" ColumnName="RefrenceNo1" />
+                <ScalarProperty Name="CallRoute" ColumnName="CallRoute" />
+                <ScalarProperty Name="CallRemark" ColumnName="CallRemark" />
+                <ScalarProperty Name="CallStatus" ColumnName="CallStatus" />
+                <ScalarProperty Name="CallType" ColumnName="CallType" />
+                <ScalarProperty Name="CallNature" ColumnName="CallNature" />
+                <ScalarProperty Name="CallAction" ColumnName="CallAction" />
+                <ScalarProperty Name="ChequeNumbers" ColumnName="ChequeNumbers" />
+                <ScalarProperty Name="AmountDifference" ColumnName="AmountDifference" />
+                <ScalarProperty Name="PickupAmount" ColumnName="PickupAmount" />
+                <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="NumberofCheques" ColumnName="NumberofCheques" />
+                <ScalarProperty Name="BankLoginTime" ColumnName="BankLoginTime" />
+                <ScalarProperty Name="BankLoginNo" ColumnName="BankLoginNo" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="ChildCRNno" ColumnName="ChildCRNno" />
+                <ScalarProperty Name="CustCustomerCode" ColumnName="CustCustomerCode" />
+                <ScalarProperty Name="CustomerBranchCode" ColumnName="CustomerBranchCode" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="SubLocation" ColumnName="SubLocation" />
+                <ScalarProperty Name="Hublocation" ColumnName="Hublocation" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="GenTime" ColumnName="GenTime" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="GenDate" ColumnName="GenDate" />
+                <ScalarProperty Name="CallNo" ColumnName="CallNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RNNCMDepositionTxnDetails">
+            <EntityTypeMapping TypeName="RCMProdDBModel.RNNCMDepositionTxnDetail">
+              <MappingFragment StoreEntitySet="RNNCMDepositionTxnDetails">
+                <ScalarProperty Name="flagapisent" ColumnName="flagapisent" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+                <ScalarProperty Name="DepositedAmt" ColumnName="DepositedAmt" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="NCMModeId" ColumnName="NCMModeId" />
+                <ScalarProperty Name="VaultId" ColumnName="VaultId" />
+                <ScalarProperty Name="CentralBankId" ColumnName="CentralBankId" />
+                <ScalarProperty Name="LocalBankId" ColumnName="LocalBankId" />
+                <ScalarProperty Name="RNTransactionId" ColumnName="RNTransactionId" />
+                <ScalarProperty Name="RNNCMDepsotionTxnId" ColumnName="RNNCMDepsotionTxnId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RNNCMDepositionTxns">
+            <EntityTypeMapping TypeName="RCMProdDBModel.RNNCMDepositionTxn">
+              <MappingFragment StoreEntitySet="RNNCMDepositionTxns">
+                <ScalarProperty Name="VaultoBankId" ColumnName="VaultoBankId" />
+                <ScalarProperty Name="vaultbankbal" ColumnName="vaultbankbal" />
+                <ScalarProperty Name="vaultbankdeposit" ColumnName="vaultbankdeposit" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+                <ScalarProperty Name="PendingAmt" ColumnName="PendingAmt" />
+                <ScalarProperty Name="DepositedAmt" ColumnName="DepositedAmt" />
+                <ScalarProperty Name="PickupAmt" ColumnName="PickupAmt" />
+                <ScalarProperty Name="CallNo" ColumnName="CallNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CashDepositTxns">
+            <EntityTypeMapping TypeName="RCMProdDBModel.CashDepositTxn">
+              <MappingFragment StoreEntitySet="CashDepositTxn">
+                <ScalarProperty Name="apisent" ColumnName="apisent" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Cashdepositflag" ColumnName="Cashdepositflag" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CorebankaccNo" ColumnName="CorebankaccNo" />
+                <ScalarProperty Name="BatchDSNo" ColumnName="BatchDSNo" />
+                <ScalarProperty Name="FlagNCMDepositionDay02" ColumnName="FlagNCMDepositionDay02" />
+                <ScalarProperty Name="FlagNCMDepositionDay01" ColumnName="FlagNCMDepositionDay01" />
+                <ScalarProperty Name="FlagCDPDepositionDay02" ColumnName="FlagCDPDepositionDay02" />
+                <ScalarProperty Name="FlagCDPDepositionDay01" ColumnName="FlagCDPDepositionDay01" />
+                <ScalarProperty Name="FlagVaultDepositionNCM" ColumnName="FlagVaultDepositionNCM" />
+                <ScalarProperty Name="FlagVaultDepositionCDP" ColumnName="FlagVaultDepositionCDP" />
+                <ScalarProperty Name="FlagNCMDeposition" ColumnName="FlagNCMDeposition" />
+                <ScalarProperty Name="FlagCDPDeposition" ColumnName="FlagCDPDeposition" />
+                <ScalarProperty Name="GenDate" ColumnName="GenDate" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="CDP" ColumnName="CDP" />
+                <ScalarProperty Name="NCMAccountNo" ColumnName="NCMAccountNo" />
+                <ScalarProperty Name="NCM" ColumnName="NCM" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="VaultID" ColumnName="VaultID" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="ChildCRNno" ColumnName="ChildCRNno" />
+                <ScalarProperty Name="CRNNo" ColumnName="CRNNo" />
+                <ScalarProperty Name="DepositionBank" ColumnName="DepositionBank" />
+                <ScalarProperty Name="DepositType" ColumnName="DepositType" />
+                <ScalarProperty Name="DepositSlipNo" ColumnName="DepositSlipNo" />
+                <ScalarProperty Name="CallNo" ColumnName="CallNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BinMasters">
+            <EntityTypeMapping TypeName="RCMProdDBModel.BinMaster">
+              <MappingFragment StoreEntitySet="BinMaster">
+                <ScalarProperty Name="HubLocationName" ColumnName="HubLocationName" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="BinCode" ColumnName="BinCode" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="MSP" ColumnName="MSP" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MdmVaultMasters">
+            <EntityTypeMapping TypeName="RCMProdDBModel.MdmVaultMaster">
+              <MappingFragment StoreEntitySet="MdmVaultMaster">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="HubLocationName" ColumnName="HubLocationName" />
+                <ScalarProperty Name="SubHubLocationCode" ColumnName="SubHubLocationCode" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="VaultCode" ColumnName="VaultCode" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VaultMappings">
+            <EntityTypeMapping TypeName="RCMProdDBModel.VaultMapping">
+              <MappingFragment StoreEntitySet="VaultMapping">
+                <ScalarProperty Name="MDMVaultid" ColumnName="MDMVaultid" />
+                <ScalarProperty Name="RCMVaultId" ColumnName="RCMVaultId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VaultMasters">
+            <EntityTypeMapping TypeName="RCMProdDBModel.VaultMaster">
+              <MappingFragment StoreEntitySet="VaultMaster">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="SubLocation" ColumnName="SubLocation" />
+                <ScalarProperty Name="HubLocationCode" ColumnName="HubLocationCode" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+                <ScalarProperty Name="VaultLimit" ColumnName="VaultLimit" />
+                <ScalarProperty Name="VaultType" ColumnName="VaultType" />
+                <ScalarProperty Name="VaultName" ColumnName="VaultName" />
+                <ScalarProperty Name="VaultID" ColumnName="VaultID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
