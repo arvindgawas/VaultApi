@@ -18,20 +18,22 @@ namespace VaultAPI.model
         public string clientName { get; set; }
         public string callNo { get; set; }
         public string vaultId { get; set; }
+        public string binId { get; set; }
         public string indentType { get; set; }
         public string indentDate { get; set; }
+        public DateTime genDate { get; set; }
         public string custodianId { get; set; }
         public string activityName { get; set; }
-        public int? noDeno5 { get; set; }
-        public int? noDeno2 { get; set; }
-        public int? noDeno1 { get; set; }
-        public int? noDeno10 { get; set; }
-        public int? noDeno20 { get; set; }
-        public int? noDeno50 { get; set; }
-        public int? noDeno100 { get; set; }
-        public int? noDeno200 { get; set; }
-        public int? noDeno500 { get; set; }
-        public int? noDeno2000 { get; set; }
+        public int? noDen5 { get; set; }
+        public int? noDen2 { get; set; }
+        public int? noDen1 { get; set; }
+        public int? noDen10 { get; set; }
+        public int? noDen20 { get; set; }
+        public int? noDen50 { get; set; }
+        public int? noDen100 { get; set; }
+        public int? noDen200 { get; set; }
+        public int? noDen500 { get; set; }
+        public int? noDen2000 { get; set; }
         public int? other { get; set; }
 
     }
