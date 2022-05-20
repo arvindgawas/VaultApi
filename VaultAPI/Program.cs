@@ -52,8 +52,7 @@ namespace VaultAPI
                                                   clientCode = a.CustCustomerCode,
                                                   clientName = d.ClientCustName,
                                                   callNo = a.CallNo.ToString(),
-                                                  vaultId = mvm.VaultCode,
-                                                  //vaultId = c.VaultID,
+                                                  vaultId = mvm.VaultUniqueID,
                                                   binId = "CMS-AUR-SIL-IND-RCM",
                                                   //vaultId = "CMS-WES-PUN-AUR-SIL",
                                                   activityName = "Cash Pickup from Customers",
@@ -81,6 +80,17 @@ namespace VaultAPI
 
                     using (HttpClient clientnew = new HttpClient(handlernew))
                     {
+
+
+                        //binid logic
+                        /*
+                        var vbinid = (from a in dbcon.BinMasters
+                                     where a.HubLocationName == objrcmvault.hublocationame &&
+                                          a.ProductType == 'RCM' && a.Bank == objrcmvault.bankName
+                                     select a.bincode
+                                    ).SingleOrDefault();
+                        objrcmvault.binId = vbinid;
+                        */
 
                         objrcmvault.indentDate = String.Format("{0:dd/MM/yyyy}", objrcmvault.genDate);
                         clientnew.BaseAddress = new Uri(apiurl);
@@ -134,6 +144,9 @@ namespace VaultAPI
                                               join b in dbcon.CallDenominations on a.CallNo equals b.CallNo
                                               join c in dbcon.RNNCMDepositionTxns on a.CallNo equals c.CallNo
                                               join d in dbcon.RNNCMDepositionTxnDetails on c.Id equals d.RNNCMDepsotionTxnId
+                                              join vm in dbcon.VaultMasters on d.VaultId equals vm.ID
+                                              join v in dbcon.VaultMappings on vm.ID equals v.RCMVaultId
+                                              join mvm in dbcon.MdmVaultMasters on v.MDMVaultid equals mvm.Id
                                               where c.CallNo == 19522764 && d.NCMModeId == 8
                                               //where DbFunctions.TruncateTime(d.CreatedDate) == DateTime.Today  && d.NCMModeId==8 && d.flagapisent==null
                                               select new rcmvault
@@ -310,6 +323,6 @@ namespace VaultAPI
 
         }
 
-    }    
+    }
 }
 

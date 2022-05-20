@@ -393,6 +393,7 @@ warning 6002: The table/view 'RCMProdDB.dbo.BusinessCallLogDetails' does not hav
           <Property Name="CompanyCode" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="VaultUniqueID" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="RNNCMDepositionTxnDetails">
           <Key>
@@ -1031,6 +1032,7 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="VaultUniqueID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VaultMapping">
           <Key>
@@ -1482,6 +1484,7 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <EntitySetMapping Name="MdmVaultMasters">
             <EntityTypeMapping TypeName="RCMProdDBModel.MdmVaultMaster">
               <MappingFragment StoreEntitySet="MdmVaultMaster">
+                <ScalarProperty Name="VaultUniqueID" ColumnName="VaultUniqueID" />
                 <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
