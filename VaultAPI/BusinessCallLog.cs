@@ -134,10 +134,5 @@ namespace VaultAPI
         public string OtherRemarksHCIN { get; set; }
         public Nullable<System.DateTime> RestartServiceDate { get; set; }
         public Nullable<decimal> OTPMobileNo { get; set; }
-        public string flagAllowLocException { get; set; }
-        public string flagapisent { get; set; }
-        public string flagidfcapisent { get; set; }
-        public string vaultbankdeposit { get; set; }
-        public Nullable<decimal> vaultbankbal { get; set; }
     }
 }

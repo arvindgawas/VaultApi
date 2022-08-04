@@ -18,7 +18,6 @@ namespace VaultAPI
         public long RNNCMDepsotionTxnId { get; set; }
         public Nullable<long> RNTransactionId { get; set; }
         public Nullable<int> LocalBankId { get; set; }
-        public Nullable<int> CentralBankId { get; set; }
         public Nullable<int> VaultId { get; set; }
         public Nullable<int> NCMModeId { get; set; }
         public string Remark { get; set; }
@@ -28,6 +27,7 @@ namespace VaultAPI
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<int> CentralBankId { get; set; }
         public string flagapisent { get; set; }
     }
 }

@@ -24,8 +24,5 @@ namespace VaultAPI
         public System.DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public string vaultbankdeposit { get; set; }
-        public Nullable<decimal> vaultbankbal { get; set; }
-        public Nullable<long> VaultoBankId { get; set; }
     }
 }

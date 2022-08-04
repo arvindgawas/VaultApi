@@ -14,10 +14,12 @@ namespace VaultAPI.model
         public string type { get; set; }
         public string bankCode { get; set; }
         public string bankName { get; set; }
+        public string hublocationcode { get; set; }
         public string clientCode { get; set; }
         public string clientName { get; set; }
         public string callNo { get; set; }
         public string vaultId { get; set; }
+        public string VaultUniqueId { get; set; }
         public string binId { get; set; }
         public string indentType { get; set; }
         public string indentDate { get; set; }

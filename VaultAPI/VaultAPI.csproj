@@ -68,31 +68,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinMaster.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="BusinessCallLog.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="BusinessCallLogDetail.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="CallDenomination.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="CashDepositTxn.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HublocationMast.cs">
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="MdmVaultMaster.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="model\rcmvault.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RNNCMDepositionTxn.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="RNNCMDepositionTxnDetail.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="vaultentity.Context.cs">
       <AutoGen>True</AutoGen>
@@ -110,10 +113,25 @@
       <DependentUpon>vaultentity.edmx</DependentUpon>
     </Compile>
     <Compile Include="VaultMapping.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
     </Compile>
     <Compile Include="VaultMaster.cs">
-      <DependentUpon>vaultentity.tt</DependentUpon>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vaultprodentity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vaultprodentity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vaultprodentity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vaultprodentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vaultprodentity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vaultprodentity.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +144,13 @@
     <None Include="vaultentity.edmx.diagram">
       <DependentUpon>vaultentity.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="vaultprodentity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>vaultprodentity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="vaultprodentity.edmx.diagram">
+      <DependentUpon>vaultprodentity.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="vaultentity.Context.tt">
@@ -137,6 +162,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>vaultentity.edmx</DependentUpon>
       <LastGenOutput>vaultentity.cs</LastGenOutput>
+    </Content>
+    <Content Include="vaultprodentity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>vaultprodentity.edmx</DependentUpon>
+      <LastGenOutput>vaultprodentity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="vaultprodentity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>vaultprodentity.edmx</DependentUpon>
+      <LastGenOutput>vaultprodentity.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
