@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using VaultAPI.model;
+using Serilog;
 
 namespace VaultAPI
 {
@@ -16,6 +17,12 @@ namespace VaultAPI
     {
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+             .MinimumLevel.Debug()
+             .WriteTo.Console()
+             .WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Day)
+             .CreateLogger();
+
             RunAsync().GetAwaiter().GetResult();
         }
 
@@ -33,7 +40,7 @@ namespace VaultAPI
             RCMProdDBEntitiesProd dbcon = new RCMProdDBEntitiesProd();
             try
             {
-                DateTime dt = DateTime.Parse("2022-7-6");
+                //DateTime dt = DateTime.Parse("2022-7-6");
                 List<rcmvault> lstrcmvault = (from a in dbcon.BusinessCallLogs
                                               join b in dbcon.CallDenominations on a.CallNo equals b.CallNo
                                               join c in dbcon.CashDepositTxns on b.CallNo equals c.CallNo
@@ -42,9 +49,9 @@ namespace VaultAPI
                                               join v in dbcon.VaultMappings on vm.ID equals v.RCMVaultId
                                               join mvm in dbcon.MdmVaultMasters on v.MDMVaultid equals mvm.Id
                                               //where c.CallNo == 45120154 && c.DepositType == "V" && c.CallNo == 46094559
-                                              //where DbFunctions.TruncateTime(c.ActionDate) == DateTime.Today && c.DepositType == "V" 
-                                              where DbFunctions.TruncateTime(c.ActionDate) == dt  && c.DepositType == "V"
-                                                && d.ClientCode == b.ClientCode && (a.Region == "1016" || a.Region == "1017")
+                                              //where DbFunctions.TruncateTime(c.ActionDate) == dt  && c.DepositType == "V"
+                                              where DbFunctions.TruncateTime(c.ActionDate) == DateTime.Today && c.DepositType == "V" 
+                                               && d.ClientCode == b.ClientCode && (a.Region == "1016" || a.Region == "1017")
                                                && mvm.CompanyCode=="CMS"  && c.apisent == null
                                               select new rcmvault
                                               {
@@ -88,8 +95,6 @@ namespace VaultAPI
 
                     using (HttpClient clientnew = new HttpClient(handlernew))
                     {
-
-
                         //binid logic
                         
                         var vbinid = (from a in dbcon.BinMasters
@@ -113,27 +118,32 @@ namespace VaultAPI
 
                         var jsonbo = new JavaScriptSerializer().Serialize(objrcmvault);
 
-                       
                         if (result.IsSuccessStatusCode)
                         {
-
                                 var data = (from a in dbcon.CashDepositTxns
                                             where a.Id == objrcmvault.tranid
                                             select a).SingleOrDefault();
-
                                 data.apisent = "Y";
                         }
-                      
+
+                        Log.Information(((responseTask).Result).RequestMessage.Method.ToString());
+                        Log.Information(DateTime.Now.ToShortDateString());
+                        Log.Information(((responseTask).Result).RequestMessage.RequestUri.ToString());
+                        Log.Information("Request :" + new JavaScriptSerializer().Serialize(objrcmvault));
+                        Log.Information(result.StatusCode.ToString());
+                        Log.Information("Response :" + result.Content.ReadAsStringAsync().Result);
                     }
-
                 }
-
                 dbcon.SaveChanges();
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Log.Error(e.Message);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
             }
         }
         
@@ -145,7 +155,7 @@ namespace VaultAPI
             RCMProdDBEntitiesProd dbcon = new RCMProdDBEntitiesProd();
             try
             {
-                DateTime dt = DateTime.Parse("2022-7-6");
+                //DateTime dt = DateTime.Parse("2022-7-6");
                 List<rcmvault> lstrcmvault = (from a in dbcon.BusinessCallLogs
                                               join b in dbcon.CallDenominations on a.CallNo equals b.CallNo
                                               join c in dbcon.RNNCMDepositionTxns on a.CallNo equals c.CallNo
@@ -155,8 +165,8 @@ namespace VaultAPI
                                               join v in dbcon.VaultMappings on vm.ID equals v.RCMVaultId
                                               join mvm in dbcon.MdmVaultMasters on v.MDMVaultid equals mvm.Id
                                               //where c.CallNo == 19522764 && d.NCMModeId == 8   && (a.Region == "1016" || a.Region == "1017")
-                                              //where DbFunctions.TruncateTime(d.CreatedDate) == DateTime.Today  && d.NCMModeId==8 && b.ClientCode == bd.ClientCode
-                                              where DbFunctions.TruncateTime(d.CreatedDate) == dt && d.NCMModeId == 8 && b.ClientCode == bd.ClientCode
+                                              //where DbFunctions.TruncateTime(d.CreatedDate) == dt && d.NCMModeId == 8 && b.ClientCode == bd.ClientCode
+                                              where DbFunctions.TruncateTime(d.CreatedDate) == DateTime.Today  && d.NCMModeId==8 && b.ClientCode == bd.ClientCode
                                                && mvm.CompanyCode == "CMS" && d.flagapisent==null && (a.Region == "1016" || a.Region == "1017")
                                               select new rcmvault
                                               {
@@ -238,7 +248,13 @@ namespace VaultAPI
                                data.flagapisent = "Y";
 
                         }
-                     
+
+                            Log.Error(((responseTask).Result).RequestMessage.Method.ToString());
+                            Log.Error(DateTime.Now.ToShortDateString());
+                            Log.Error(((responseTask).Result).RequestMessage.RequestUri.ToString());
+                            Log.Error("Request :" + new JavaScriptSerializer().Serialize(objrcmvault));
+                            Log.Error(result.StatusCode.ToString());
+                            Log.Error("Response :" + result.Content.ReadAsStringAsync().Result);
                     }
 
                 }
