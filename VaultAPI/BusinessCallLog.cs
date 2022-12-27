@@ -134,5 +134,6 @@ namespace VaultAPI
         public string OtherRemarksHCIN { get; set; }
         public Nullable<System.DateTime> RestartServiceDate { get; set; }
         public Nullable<decimal> OTPMobileNo { get; set; }
+        public string flagidfcapisent { get; set; }
     }
 }

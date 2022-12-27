@@ -5,6 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RCMProdDBModelprod.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BinMapping">
+          <Key>
+            <PropertyRef Name="BinCode" />
+          </Key>
+          <Property Name="BinCode" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="BinMaster">
           <Key>
             <PropertyRef Name="Id" />
@@ -146,6 +152,7 @@
           <Property Name="OtherRemarksHCIN" Type="varchar" MaxLength="500" />
           <Property Name="RestartServiceDate" Type="datetime" />
           <Property Name="OTPMobileNo" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="flagidfcapisent" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'RCMProdDB.dbo.BusinessCallLogDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -472,6 +479,7 @@ warning 6002: The table/view 'RCMProdDB.dbo.VaultMapping' does not have a primar
 warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="fk_BC_CashDepositTxn" />-->
         <EntityContainer Name="RCMProdDBModelprodStoreContainer">
+          <EntitySet Name="BinMapping" EntityType="Self.BinMapping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BinMaster" EntityType="Self.BinMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BusinessCallLog" EntityType="Self.BusinessCallLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CallDenominations" EntityType="Self.CallDenominations" Schema="dbo" store:Type="Tables" />
@@ -725,6 +733,7 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <Property Name="OtherRemarksHCIN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="RestartServiceDate" Type="DateTime" Precision="3" />
           <Property Name="OTPMobileNo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="flagidfcapisent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="CallDenomination">
           <Key>
@@ -1043,6 +1052,7 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <EntitySet Name="VaultMappings" EntityType="Self.VaultMapping" />
           <EntitySet Name="BinMasters" EntityType="RCMProdDBModelprod.BinMaster" />
           <EntitySet Name="HublocationMasts" EntityType="RCMProdDBModelprod.HublocationMast" />
+          <EntitySet Name="BinMappings" EntityType="RCMProdDBModelprod.BinMapping" />
         </EntityContainer>
         <EntityType Name="BinMaster">
           <Key>
@@ -1073,6 +1083,12 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="BinMapping">
+          <Key>
+            <PropertyRef Name="BinCode" />
+          </Key>
+          <Property Name="BinCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1082,6 +1098,7 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
           <EntitySetMapping Name="BusinessCallLogs">
             <EntityTypeMapping TypeName="RCMProdDBModelprod.BusinessCallLog">
               <MappingFragment StoreEntitySet="BusinessCallLog">
+                <ScalarProperty Name="flagidfcapisent" ColumnName="flagidfcapisent" />
                 <ScalarProperty Name="CallNo" ColumnName="CallNo" />
                 <ScalarProperty Name="GenDate" ColumnName="GenDate" />
                 <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
@@ -1537,6 +1554,13 @@ warning 6035: The relationship 'fk_BC_CashDepositTxn' has columns that are not p
                 <ScalarProperty Name="hublocationcode" ColumnName="hublocationcode" />
                 <ScalarProperty Name="hublocationname" ColumnName="hublocationname" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BinMappings">
+            <EntityTypeMapping TypeName="RCMProdDBModelprod.BinMapping">
+              <MappingFragment StoreEntitySet="BinMapping">
+                <ScalarProperty Name="BinCode" ColumnName="BinCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

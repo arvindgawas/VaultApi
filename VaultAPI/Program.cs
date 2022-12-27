@@ -29,7 +29,7 @@ namespace VaultAPI
         static async Task RunAsync()
         {
             rcmvaultdata();
-            //ncmvaultdata();
+            ncmvaultdata();
             //rcmattenddata();
         }
 
@@ -40,7 +40,7 @@ namespace VaultAPI
             RCMProdDBEntitiesProd dbcon = new RCMProdDBEntitiesProd();
             try
             {
-                //DateTime dt = DateTime.Parse("2022-7-6");
+                DateTime dt = DateTime.Parse("2022-12-20");
                 List<rcmvault> lstrcmvault = (from a in dbcon.BusinessCallLogs
                                               join b in dbcon.CallDenominations on a.CallNo equals b.CallNo
                                               join c in dbcon.CashDepositTxns on b.CallNo equals c.CallNo
@@ -50,10 +50,11 @@ namespace VaultAPI
                                               join mvm in dbcon.MdmVaultMasters on v.MDMVaultid equals mvm.Id
                                               //where c.CallNo == 45120154 && c.DepositType == "V" && c.CallNo == 46094559
                                               //where DbFunctions.TruncateTime(c.ActionDate) == dt  && c.DepositType == "V"
-                                              where DbFunctions.TruncateTime(c.ActionDate) == DateTime.Today && c.DepositType == "V" 
-                                               && d.ClientCode == b.ClientCode && (a.Region == "1016" || a.Region == "1017")
-                                               && mvm.CompanyCode=="CMS"  && c.apisent == null
-                                              select new rcmvault
+                                              where DbFunctions.TruncateTime(c.ActionDate) >= dt
+                                               && c.DepositType == "V" 
+                                               && d.ClientCode == b.ClientCode && (a.Region == "1016")
+                                               && mvm.CompanyCode=="CMS"  && c.apisent == null && a.PickupAmount > 0
+                                             select new rcmvault
                                               {
                                                   templateId = 5525219007528960,
                                                   tranid = c.Id,
@@ -68,7 +69,7 @@ namespace VaultAPI
                                                   callNo = a.CallNo.ToString(),
                                                   VaultUniqueId = mvm.VaultUniqueID,
                                                   vaultId = mvm.VaultCode,
-                                                  binId = "CMS-AUR-SIL-IND-RCM",
+                                                  binId = "",
                                                   //vaultId = "CMS-WES-PUN-AUR-SIL",
                                                   activityName = "Cash Pickup from Customers",
                                                   custodianId = a.AttendBy,
@@ -99,12 +100,18 @@ namespace VaultAPI
                         
                         var vbinid = (from a in dbcon.BinMasters
                                       join h in dbcon.HublocationMasts on a.HubLocationName equals h.hublocationname
+                                      join b in dbcon.BinMappings on a.BinCode equals b.BinCode
                                      where h.hublocationcode == objrcmvault.hublocationcode &&  a.ProductType == "RCM" && a.Bank == objrcmvault.bankName
                                      select a.BinCode
                                     ).SingleOrDefault();
+
+                        if (vbinid==null)
+                        {
+                            continue;
+                        }
                         objrcmvault.binId = vbinid;
 
-                        objrcmvault.indentDate = String.Format("{0:dd/MM/yyyy}", objrcmvault.genDate);
+                        objrcmvault.indentDate = String.Format("{0:dd-MM-yyyy}", objrcmvault.genDate);
                         clientnew.BaseAddress = new Uri(apiurl);
                         clientnew.DefaultRequestHeaders.Accept.Clear();
                         clientnew.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -155,7 +162,7 @@ namespace VaultAPI
             RCMProdDBEntitiesProd dbcon = new RCMProdDBEntitiesProd();
             try
             {
-                //DateTime dt = DateTime.Parse("2022-7-6");
+                DateTime dt = DateTime.Parse("2022-12-20");
                 List<rcmvault> lstrcmvault = (from a in dbcon.BusinessCallLogs
                                               join b in dbcon.CallDenominations on a.CallNo equals b.CallNo
                                               join c in dbcon.RNNCMDepositionTxns on a.CallNo equals c.CallNo
@@ -166,8 +173,10 @@ namespace VaultAPI
                                               join mvm in dbcon.MdmVaultMasters on v.MDMVaultid equals mvm.Id
                                               //where c.CallNo == 19522764 && d.NCMModeId == 8   && (a.Region == "1016" || a.Region == "1017")
                                               //where DbFunctions.TruncateTime(d.CreatedDate) == dt && d.NCMModeId == 8 && b.ClientCode == bd.ClientCode
-                                              where DbFunctions.TruncateTime(d.CreatedDate) == DateTime.Today  && d.NCMModeId==8 && b.ClientCode == bd.ClientCode
-                                               && mvm.CompanyCode == "CMS" && d.flagapisent==null && (a.Region == "1016" || a.Region == "1017")
+                                              where DbFunctions.TruncateTime(d.CreatedDate) >= dt
+                                              && d.NCMModeId==8 && b.ClientCode == bd.ClientCode
+                                               && mvm.CompanyCode == "CMS" && d.flagapisent==null && (a.Region == "1016")
+                                               && a.PickupAmount > 0
                                               select new rcmvault
                                               {
                                                   templateId = 5525219007528960,
@@ -216,14 +225,21 @@ namespace VaultAPI
 
                         var vbinid = (from a in dbcon.BinMasters
                                       join h in dbcon.HublocationMasts on a.HubLocationName equals h.hublocationname
+                                      join b in dbcon.BinMappings on a.BinCode equals b.BinCode
                                       where h.hublocationcode == objrcmvault.hublocationcode && a.ProductType == "NCM" 
                                       //&& a.Bank == objrcmvault.bankName
                                       select a.BinCode
                                     ).SingleOrDefault();
+
+                        if (vbinid == null)
+                        {
+                            continue;
+                        }
+
                         objrcmvault.binId = vbinid;
 
 
-                        objrcmvault.indentDate = String.Format("{0:dd/MM/yyyy}", objrcmvault.genDate);
+                        objrcmvault.indentDate = String.Format("{0:dd-MM-yyyy}", objrcmvault.genDate);
                         clientnew.BaseAddress = new Uri(apiurl);
                         clientnew.DefaultRequestHeaders.Accept.Clear();
                         clientnew.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));

@@ -35,5 +35,6 @@ namespace VaultAPI
         public virtual DbSet<MdmVaultMaster> MdmVaultMasters { get; set; }
         public virtual DbSet<VaultMapping> VaultMappings { get; set; }
         public virtual DbSet<VaultMaster> VaultMasters { get; set; }
+        public virtual DbSet<BinMapping> BinMappings { get; set; }
     }
 }

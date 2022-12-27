@@ -16,6 +16,7 @@
         <EntityTypeShape EntityType="RCMProdDBModelprod.VaultMapping" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RCMProdDBModelprod.BinMaster" Width="1.5" PointX="9.375" PointY="9.75" />
         <EntityTypeShape EntityType="RCMProdDBModelprod.HublocationMast" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RCMProdDBModelprod.BinMapping" Width="1.5" PointX="11.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
